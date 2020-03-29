@@ -1,0 +1,62 @@
+alias dc="cd"
+alias ls="ls --color"
+alias ll="ls -thor"
+alias despertar="wol 94:de:80:bd:0e:b1"
+alias polyr="polybar-msg cmd restart"
+alias notepad="gvim"
+alias calc="qalculate-gtk"
+#alias vim="nvim"
+alias orphan="doas pacman -Rns (pacman -Qtdq)"
+alias syncRepo="git fetch --all; git reset --hard origin/master"
+alias sistra="cd ~/dev/sistra ; npm run dev"
+
+#fuck mkdir
+alias mkd="mkdir -pv"
+# Donwload youtube audio
+alias yta="youtube-dl --add-metadata -xic" 
+#upgrade system
+alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias ts="tmux ls"
+alias ta="tmux attach > /dev/null || tmux"
+
+#cd folder
+alias gra="cd ~/.config/retroarch"
+alias gD="cd ~/Desktop"
+alias gd="cd ~/Downloads"
+alias gr="cd ~/Development/"
+alias gs="cd ~/Sync"
+alias gdot="cd ~/dotfiles/"
+alias gkey="cd ~/.local/share/keyrings/"
+alias gt="cd ~/Development/"
+alias gc="cd ~/CLionProjects/"
+
+#edit files
+alias zshrc="vim $ZDOTDIR/.zshrc"
+alias tmuxconf="vim ~/.tmux.conf"
+alias doomconf="vim ~/.config/gzdoom/gzdoom.ini"
+alias vimconf="vim ~/.config/nvim/init.vim"
+alias pluginconf="vim ~/.config/nvim/plugins.vim"
+alias i3conf="vim ~/.config/i3/config"
+alias rangerconf="vim ~/.config/ranger/rc.conf"
+
+alias xbin='doas xbps-install -S'  
+alias xbrm='doas xbps-remove -R'  
+alias xbq='doas xbps-query -Rs'
+alias upgrd="aura && yay -Syyu --noconfirm --overwrite && figlet Update complete! "
+
+alias ctagsTS='ctags --languages=typescript -R .'
+if [ -f '/etc/rc.local' ]; then
+    # alias yay="sudo vpm"
+     alias reboot='doas reboot'
+     alias poweroff='doas poweroff'
+    # alias upgrd='aura && sudo xbps-install -Suv && figlet -f script Done! | lolcat'
+fi
+
+gclone(){
+    git clone "https://github.com/$1"
+}
+
+alias lc='colorls'
+alias g='git'
+alias next='feh -z --bg-scale ~/Pictures/*'
+alias vsv='doas vsv'

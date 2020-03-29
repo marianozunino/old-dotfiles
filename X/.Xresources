@@ -1,0 +1,18 @@
+Xft.autohint: 1
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: none
+Xft.lcdfilter: lcddefault
+
+#xautolock :)
+Xautolock.time: 2
+Xautolock.locker: newlocker.sh lock
+Xautolock.killtime: 10
+Xautolock.killer: newlocker.sh suspend
+Xautolock.notify: 15
+Xautolock.notifier: newlocker.sh notify
+Xautolock.detectsleep: true
+Xautolock.secure: true
+Xautolock.noclose: true
+
