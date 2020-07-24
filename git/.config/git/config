@@ -23,6 +23,11 @@
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
 [mergetool "fugitive"]
-    cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
+    cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    #cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [merge]
     tool = fugitive
+    conflictStyle = diff3
+[icdiff]
+	options = --highlight --line-numbers
+#

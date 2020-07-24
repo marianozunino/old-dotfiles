@@ -55,7 +55,6 @@ scrolling:
   #faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
 
 # Spaces per Tab (changes require restart)
 #
@@ -64,7 +63,6 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
 
 # Font configuration (changes require restart)
 #
@@ -127,41 +125,43 @@ font:
 # Display the time it takes to redraw each frame.
 debug.render_timer: false
 
-# If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
 
+# Base16 Twilight - alacritty color config
+# David Hart (https://github.com/hartbit)
 colors:
   # Default colors
   primary:
-    background: '0x1c1c1c'
-    foreground: '0x808080'
+    background: '0x1e1e1e'
+    foreground: '0xa7a7a7'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1c1c1c'
-    cursor: '0x808080'
+    text: '0x1e1e1e'
+    cursor: '0xa7a7a7'
 
+  # Normal colors
   normal:
-    black:   '0x1c1c1c'
-    red:     '0x585858'
-    green:   '0xaf87d7'
-    yellow:  '0xafd700'
-    blue:    '0xff5faf'
-    magenta: '0x00afaf'
-    cyan:    '0xffaf00'
-    white:   '0x808080'
+    black:   '0x1e1e1e'
+    red:     '0xcf6a4c'
+    green:   '0x8f9d6a'
+    yellow:  '0xf9ee98'
+    blue:    '0x7587a6'
+    magenta: '0x9b859d'
+    cyan:    '0xafc4db'
+    white:   '0xa7a7a7'
 
   # Bright colors
   bright:
-    black:   '0xd7af5f'
-    red:     '0x5faf5f'
-    green:   '0xaf005f'
-    yellow:  '0x5faf00'
-    blue:    '0x5fafd7'
-    magenta: '0xd7875f'
-    cyan:    '0x5f8787'
-    white:   '0xd0d0d0'
+    black:   '0x5f5a60'
+    red:     '0xcda869'
+    green:   '0x323537'
+    yellow:  '0x464b50'
+    blue:    '0x838184'
+    magenta: '0xc3c3c3'
+    cyan:    '0x9b703f'
+    white:   '0xffffff'
 
+draw_bold_text_with_bright_colors: false
 
 # Visual Bell
 #
@@ -192,7 +192,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+background_opacity: 0.94
 
 # Mouse bindings
 #

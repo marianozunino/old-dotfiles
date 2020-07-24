@@ -136,3 +136,7 @@ elif [ -z $TMUX ]; then
         tmux attach 
     fi
 fi
+
+export PATH="$PATH:/home/forbi/.dotnet/tools"
+
+source "/home/forbi/.sdkman/bin/sdkman-init.sh"

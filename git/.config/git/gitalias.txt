@@ -1434,3 +1434,4 @@
 
   ull = pull
   ush = push
+  mt = mergetool

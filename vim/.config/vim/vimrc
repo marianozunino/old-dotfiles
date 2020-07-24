@@ -6,15 +6,18 @@
 "   ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "     ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
-" minpac commands:
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
 
-if empty(glob("/home/forbi/.config/vim/pack/minpac/opt/minpac"))
-      silent !git clone https://github.com/k-takata/minpac.git
-                  \ ~/.config/vim/pack/minpac/opt/minpac
-      autocmd VimEnter * call minpac#update()
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" if empty(glob("/home/forbi/.config/vim/pack/minpac/opt/minpac"))
+"       silent !git clone https://github.com/k-takata/minpac.git
+"                   \ ~/.config/vim/pack/minpac/opt/minpac
+"       autocmd VimEnter * call minpac#update()
+" endif
 
 source ~/.config/vim/plugins.vim
 
@@ -26,17 +29,20 @@ let mapleader=" "
 if &t_Co > 2
 	syntax on
     set background=dark
-    "colorscheme PaperColor
-	silent! colorscheme PaperColor
-	set background=dark
+    "set background=dark
+    if &diff
+         colorscheme github
+    else
+        colorscheme spacegray
+    endif
 
 	highlight Folded cterm=reverse ctermbg=0 ctermfg=8
 	highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=8
 	highlight Conceal cterm=NONE ctermbg=NONE ctermfg=8
 
-	highlight DiffAdd ctermfg=green cterm=bold
-	highlight DiffDelete ctermfg=red cterm=bold
-	highlight DiffChange ctermfg=yellow
+	"highlight DiffAdd ctermfg=green cterm=bold
+	"highlight DiffDelete ctermfg=red cterm=bold
+	"highlight DiffChange ctermfg=yellow
 
 	set colorcolumn=80
 
@@ -44,7 +50,7 @@ if &t_Co > 2
 	noremap <F12> <Esc>:syntax sync fromstart<CR>
 	inoremap <F12> <C-o>:syntax sync fromstart<CR>
 endif
-
+hi Normal guibg=NONE ctermbg=NONE
 " ================ General Config ====================
 set clipboard=unnamedplus
 
@@ -277,3 +283,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ ]
+
+map dp :diffput<CR>
+map dg :diffget<CR>
+

@@ -27,3 +27,11 @@ bin/latest\.tar\.gz
 vim/.vim/pack
 
 stow/.stowrc
+
+vim/.config/vim/pack/minpac/opt/
+
+vim/.config/vim/pack/minpac/start/
+
+vim/.config/vim/plugged/
+
+vim/.config/vim/autoload/

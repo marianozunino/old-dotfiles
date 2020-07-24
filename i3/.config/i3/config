@@ -181,20 +181,23 @@
 #
 
 # App 2 WS
+        for_window [title="JetBrains Toolbox"] floating enable
         for_window [class="Spotify"] move to workspace 5, workspace --no-auto-back-and-forth 5
         assign [class="^jetbrains-idea$"] 3
         assign [title="^win0$"] 3
+        assign [title=".*Visual Studio Code*."] 3
         assign [class="^Nightly$"] 2
         assign [class="^GitKraken$"] 4
         assign [class="^Evolution$"] 7
+        assign [class="^org.remmina.Remmina"] 10
 
+        for_window [title="win0"] floating enable border none
         for_window [instance="dropdown"] floating enable
         for_window [instance="dropdown"] resize set 1366 768
         for_window [instance="dropdown"] move scratchpad
         for_window [instance="dropdown"] border pixel 5
         for_window [instance="keepassxc"] floating enable, resize set 800 800, move scratchpad, border pixel 5
         for_window [class=".*"] border pixel 0
-
 #
 
 # multimedia
@@ -218,5 +221,5 @@
         exec --no-startup-id feh --randomize --bg-scale ~/Pictures/*
 
         # Transparency
-        exec_always --no-startup-id compton
+        #exec_always --no-startup-id compton
 #
