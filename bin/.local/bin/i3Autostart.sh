@@ -4,7 +4,7 @@ xrdb -merge ~/.Xresources
 #compton &
 lxsession &
 dunst &
-flameshow &
+flameshot &
 polybar --reload top &
 setxkbmap -layout us -variant altgr-intl
 #stop this shit..

@@ -187,6 +187,7 @@
         assign [title="^win0$"] 3
         assign [title=".*Visual Studio Code*."] 3
         assign [class="^Nightly$"] 2
+        assign [class="^Brave-browser$"] 2
         assign [class="^GitKraken$"] 4
         assign [class="^Evolution$"] 7
         assign [class="^org.remmina.Remmina"] 10
