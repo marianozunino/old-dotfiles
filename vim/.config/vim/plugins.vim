@@ -1,60 +1,60 @@
-" set packpath^=~/.config/vim
-" packadd minpac
 call plug#begin('~/.config/vim/plugged')
 
-" call minpac#init()
-
-" call minpac#add('k-takata/minpac', {'type':'opt'})
-
-
+"
+Plug 'mhinz/vim-signify', { 'branch': 'legacy' } 
 Plug 'samoshkin/vim-mergetool'
-Plug 'dhruvasagar/vim-railscasts-theme'
-Plug 'ajh17/Spacegray.vim'
-Plug 'notpratheek/vim-sol'
-Plug 'endel/vim-github-colorscheme'
-"call minpac#add('tpope/vim-fugitive')
-" let g:mergetool_layout = 'mr'
-" let g:mergetool_layout = 'bmr'
-" let g:mergetool_prefer_revision = 'local'
-"g:mergetool_prefer_revision='unmodified'
-" let g:mergetool_layout = 'lmr'
-"let g:mergetool_layout = 'lr,m'
-"let g:mergetool_prefer_revision = 'unmodified'
-
-"=====
-" THEME
-"=====
-Plug 'NLKNguyen/papercolor-theme'
-
-"==========
-" VIM enhancements
-"==========
 Plug 'tpope/vim-commentary'
 Plug 'ciaranm/securemodelines'
 Plug 'machakann/vim-highlightedyank'
 
 " =============
+"    THEME
+" =============
+Plug 'morhetz/gruvbox'
+Plug 'endel/vim-github-colorscheme'
+
+
+" =============
 "       FZF
 " =============
 Plug 'junegunn/fzf'
-"call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
 Plug 'junegunn/fzf.vim'
 
 " ==========
 " LightLine
 " ==========
-" Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:webdevicons_enable_airline_statusline = 0
-let g:airline_powerline_fonts = 0
-let g:airline_theme='atomic'
-let g:airline#extensions#tabline#enabled = 1
-
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+"
 "=====
 " LATEX
 " =====
 Plug 'lervag/vimtex'
+
+" =====
+"  GIT
+" =====
+Plug 'airblade/vim-rooter'
+
+" =========
+" NERDTREE
+" =========
+Plug 'scrooloose/nerdtree'
+
+
+" ====
+" WIKI
+" ====
+Plug 'vimwiki/vimwiki'
+
+"==========
+" SYNTAX
+"==========
+Plug 'suan/vim-instant-markdown'
+Plug 'isobit/vim-caddyfile'
+Plug 'chr4/nginx.vim'
+Plug 'neoclide/coc.nvim'
+
 let g:vimtex_compiler_latexmk = {
     \ 'options' : [
     \   '-pdf',
@@ -74,29 +74,11 @@ let g:vimtex_quickfix_latexlog = {
 \}
 
 
-" =====
-"  GIT
-" =====
-Plug 'airblade/vim-rooter'
-
-" =========
-" NERDTREE
-" =========
-" Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdtree'
-
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-" open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
-
 let g:NERDTreeGitStatusWithFlags = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:NERDTreeGitStatusNodeColorization = 1
-"let g:NERDTreeColorMapCustom = {
     "\ "Staged"    : "#0ee375",  
     "\ "Modified"  : "#d9bf91",  
     "\ "Renamed"   : "#51C9FC",  
@@ -111,18 +93,6 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$']
 
 
-" ====
-" WIKI
-" ====
-Plug 'vimwiki/vimwiki'
-
-"==========
-" SYNTAX
-"==========
-Plug 'suan/vim-instant-markdown'
-Plug 'isobit/vim-caddyfile'
-Plug 'chr4/nginx.vim'
-Plug 'neoclide/coc.nvim'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -224,3 +194,28 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 call plug#end()
+
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [['mode', 'paste'], [], ['relativepath', 'modified']],
+      \   'right': [['cocstatus'], ['filetype', 'percent', 'lineinfo'], ['gitbranch']]
+      \ },
+      \ 'inactive': {
+      \   'left': [['inactive'], ['relativepath']],
+      \   'right': [['bufnum']]
+      \ },
+      \ 'component': {
+      \   'bufnum': '%n',
+      \   'inactive': 'inactive'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ 'colorscheme': 'gruvbox',
+      \ 'subseparator': {
+      \   'left': '',
+      \   'right': ''
+      \ }
+      \}
