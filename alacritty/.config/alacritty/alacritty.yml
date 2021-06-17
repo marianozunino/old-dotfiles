@@ -184,7 +184,7 @@ draw_bold_text_with_bright_colors: false
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -224,7 +224,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
+  hints:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
@@ -245,7 +245,7 @@ selection:
   # clipboard.
   save_to_clipboard: true
 
-dynamic_title: true
+window.dynamic_title: true
 
 cursor:
   # Cursor style
