@@ -1,3 +1,14 @@
+# GitFlow related sections
+[gitflow "branch"]
+    master = master
+    develop = develop
+[gitflow "prefix"]
+    feature = feature/
+    release = release/
+    hotfix = hotfix/
+    bugfix = bugfix/
+    support = support/
+    versiontag = v
 [user]
 	email = marianoz@zoho.com
 	name = Mariano Z.
@@ -31,3 +42,7 @@
 [icdiff]
 	options = --highlight --line-numbers
 #
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
