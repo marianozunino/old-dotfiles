@@ -1,4 +1,6 @@
 # General Config
+
+
         set $mod Mod4
 
         # Font for window titles. Will also be used by the bar unless a different font
@@ -33,6 +35,12 @@
 
         #enable popup
         popup_during_fullscreen smart
+
+
+
+        bindsym $mod+bracketright move workspace to output right
+        bindsym $mod+bracketleft move workspace to output left
+
 #
 
 # keybinds
@@ -45,9 +53,10 @@
         # bindsym $mod+d exec rofi -show drun -hide-scrollbar -lines 3 -eh 1 -width 40 -location 8 -xoffset 170 -yoffset 70 -padding 30 -disable-history -font "RobotoMono 18"
         bindsym $mod+d exec rofi -show combi -show-icons
         #kill
-        bindsym $mod+x exec rofi -show Kill -modi Kill:$HOME/.config/rofi/kill.sh 
+        bindsym F4 exec rofi -show window
         # Power
-        bindsym XF86PowerOff exec rofi -show Power -modi Power:$HOME/.config/rofi/power.sh 
+        bindsym XF86PowerOff exec rofi -show Power -modi Power:$HOME/.config/rofi/power.sh
+        bindsym $mod+x exec rofi -show Power -modi Power:$HOME/.config/rofi/kill.sh
 
         # change focus
         bindsym $mod+h focus left
@@ -136,10 +145,10 @@
                 # Pressing right will grow the window’s width.
                 # Pressing up will shrink the window’s height.
                 # Pressing down will grow the window’s height.
-                bindsym j resize shrink width 10 px or 10 ppt
-                bindsym k resize grow height 10 px or 10 ppt
-                bindsym l resize shrink height 10 px or 10 ppt
-                bindsym semicolon resize grow width 10 px or 10 ppt
+                bindsym h resize shrink width 10 px or 10 ppt
+                bindsym j resize grow height 10 px or 10 ppt
+                bindsym k resize shrink height 10 px or 10 ppt
+                bindsym l resize grow width 10 px or 10 ppt
 
                 # same bindings, but for the arrow keys
                 bindsym Left resize shrink width 10 px or 10 ppt
@@ -155,7 +164,8 @@
 
         }
 
-        bindsym Print exec --no-startup-id flameshot gui
+        
+        bindsym $mod+p exec --no-startup-id flameshot gui
 
         # The middle button over a titlebar kills the window
         bindsym --release button2 kill
@@ -181,6 +191,7 @@
 #
 
 # App 2 WS
+        for_window [class="Evolution-alarm-notify"] floating enable
         for_window [title="JetBrains Toolbox"] floating enable
         for_window [class="Spotify"] move to workspace 5, workspace --no-auto-back-and-forth 5
         assign [class="^jetbrains-idea$"] 3
@@ -214,6 +225,9 @@
 
 #Startup stuff
         # exec --no-startup-id alacritty --class dropdown
+        exec --no-startup-id ~/.local/bin/monitor.sh
+        exec --no-startup-id ~/.local/bin/fileOrganizer.py
+        exec --no-startup-id ~/.config/polybar/launch.sh
         exec --no-startup-id alacritty --class dropdown
         # exec --no-startup-id st -n dropdown
         exec_always --no-startup-id numlockx on
