@@ -8,7 +8,8 @@ flameshot &
 polybar --reload top &
 setxkbmap -layout us -variant altgr-intl
 #stop this shit..
-setxkbmap -option caps:none
+setxkbmap -option caps:escape
+
 i3-msg "workspace 2; exec --no-startup-id firefox"
 sleep 1
 i3-msg "workspace 3; exec --no-startup-id pcmanfm"
