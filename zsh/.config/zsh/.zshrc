@@ -1,6 +1,6 @@
 export LANG=en_US.UTF-8
+export GOPATH=/home/forbi/Development/random/go
 export ZDOTDIR="$HOME/.config/zsh"
-export HISTFILE="$HOME/.config/zsh/.zsh_history"
 stty -ixon
 
 #####################################
@@ -26,9 +26,6 @@ if [[ ! -d ~/.config/zgen ]];then
 fi
 source "${HOME}/.config/zgen/zgen.zsh"
 
-#theme
-# zgen load bhilburn/powerlevel9k
-
 
 #load base system
 zgen oh-my-zsh
@@ -51,7 +48,14 @@ if _has fzf; then
     zgen load junegunn/fzf shell/completion.zsh
     zgen load junegunn/fzf shell/key-bindings.zsh
 fi
-zgen load halfo/lambda-mod-zsh-theme lambda-mod.zsh-theme
+
+export MNML_INFOLN=()
+export MNML_MAGICENTER=(mnml_me_git)
+export MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_keymap)
+export MNML_RPROMPT=(mnml_git)
+
+zgen load subnixr/minimal
+#
 #
 #
 #####################################
@@ -70,8 +74,8 @@ fi
 #####################################
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f'
-if _has fzf && _has ag; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+if _has fzf && _has rg; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
@@ -80,6 +84,9 @@ fi
 #####################################
 #          ZSH CONFIG               #
 #####################################
+HISTFILE="$HOME/.config/zsh/.zsh_history"
+HISTSIZE=500000
+SAVEHIST=500000
 HISTORY_IGNORE='(*.git/hooks*)'
 setopt interactivecomments
 setopt EXTENDED_HISTORY
@@ -105,6 +112,14 @@ expand-or-complete-with-dots() {
 }
 # zle -N expand-or-complete-with-dots
 # bindkey "^I" expand-or-complete-with-dots
+
+findDirectory(){
+    x=$(/bin/fd --base-directory ~/Development --search-path .  --search-path tecnologo -t d -d 2 | fzf)
+    tmux new-window -n $x -c "/home/forbi/Development/$x"
+    zle reset-prompt
+}
+zle -N findDirectory
+bindkey "^f" findDirectory
 
 
 #####################################
@@ -137,6 +152,15 @@ elif [ -z $TMUX ]; then
     fi
 fi
 
-export PATH="$PATH:/home/forbi/.dotnet/tools"
+export PATH="$PATH:/home/forbi/.dotnet/tools:/home/forbi/.cargo/bin"
 
 source "/home/forbi/.sdkman/bin/sdkman-init.sh"
+source /usr/share/git-flow/git-flow-completion.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export AES_CYPHER_KEY_DEVELOPMENT=***REMOVED***
+export AES_CYPHER_KEY_TESTING=***REMOVED***
+export AES_CYPHER_KEY_PRODUCTION=***REMOVED***

@@ -61,5 +61,17 @@ alias g='git'
 alias next='feh -z --bg-scale ~/Pictures/*'
 alias vsv='doas vsv'
 alias gpi='cd ~/Development/pi'
-alias gte='cd ~/Development/tecnologo'
+alias gtt='cd ~/Development/tecnologo'
+alias nubceo='cd ~/Development/nubceo'
+alias vairix='cd ~/Development/vairix'
 alias lll='ls -l `find . -maxdepth 1 -type l -print`'
+alias v='vim'
+alias fd='/bin/fd'
+
+
+open () {
+    for i in $*
+    do
+        setsid nohup xdg-open $i > /dev/null 2> /dev/null
+    done
+}
