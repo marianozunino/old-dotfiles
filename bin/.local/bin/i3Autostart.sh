@@ -6,8 +6,8 @@ lxsession &
 dunst &
 flameshot &
 polybar --reload top &
+blueman-applet &
 setxkbmap -layout us -variant altgr-intl
-#stop this shit..
 setxkbmap -option caps:escape
 
 i3-msg "workspace 2; exec --no-startup-id firefox"
