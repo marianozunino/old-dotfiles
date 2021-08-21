@@ -67,6 +67,11 @@ alias vairix='cd ~/Development/vairix'
 alias lll='ls -l `find . -maxdepth 1 -type l -print`'
 alias v='vim'
 alias fd='/bin/fd'
+#
+# launch diary from command line:
+alias vd='vim -c ":VimwikiMakeDiaryNote"'
+## launch index page from command line
+alias vw='vim -c ":VimwikiIndex"'
 
 
 open () {

@@ -82,13 +82,15 @@ let g:NERDTreeIgnore = ['^node_modules$']
 "    =============== 
 "         WIKI
 "    =============== 
-let g:vimwiki_list = [{'path': '$XDG_CONFIG_HOME/vimwiki',
-		  \ 'path_html': '$XDG_CONFIG_HOME/vimwiki/wiki_html/',
-		  \ 'template_path': '$XDG_CONFIG_HOME/vimwiki/templates',
+let g:vimwiki_list = [{'path': '$HOME/GDrive/vimwiki',
+		  \ 'path_html': '$HOME/GDrive/vimwiki/wiki_html/',
+		  \ 'template_path': '$HOME/GDrive/vimwiki/templates',
 		  \ 'template_default': 'def_template',
+		  \ 'auto_diary_index': 1,
 		  \ 'auto_toc': 1,
 		  \ 'template_ext': '.html'}]
 let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr, pre, script'
+
 autocmd FileType vimwiki inoremap <F5> <Esc>:VimwikiAll2HTML<Enter>
 autocmd FileType vimwiki nnoremap <F5> :VimwikiAll2HTML<Enter>
 
