@@ -11,12 +11,9 @@ BASE16_SHELL="$HOME/dotfiles/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-
 _has() {
   return $( whence $1 >/dev/null )
 }
-
-
 
 #####################################
 #               ZGEN                #
@@ -25,7 +22,6 @@ if [[ ! -d ~/.config/zgen ]];then
     git clone https://github.com/tarjoilija/zgen.git "${HOME}/.config/zgen"
 fi
 source "${HOME}/.config/zgen/zgen.zsh"
-
 
 #load base system
 zgen oh-my-zsh
@@ -67,8 +63,6 @@ if [ -f ~/dotfiles/zsh_local_alias ]; then
     source ~/dotfiles/zsh_local_alias
 fi
 
-
-
 #####################################
 #               FZF                 #
 #####################################
@@ -79,7 +73,6 @@ if _has fzf && _has rg; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
-
 
 #####################################
 #          ZSH CONFIG               #
@@ -103,7 +96,6 @@ stty start undef
 stty stop undef
 setopt noflowcontrol
 
-
 #complete with ...
 expand-or-complete-with-dots() {
   echo -n "\e[31m......\e[0m"
@@ -115,12 +107,15 @@ expand-or-complete-with-dots() {
 
 findDirectory(){
     x=$(/bin/fd --base-directory ~/Development --search-path .  --search-path tecnologo -t d -d 2 | fzf)
-    tmux new-window -n $x -c "/home/forbi/Development/$x"
+    if [[ "$PWD" == "$HOME" ]] ;then
+        tmux rename-window $x; cd "/home/forbi/Development/$x"
+    else
+        tmux new-window -n $x -c "/home/forbi/Development/$x"
+    fi
     zle reset-prompt
 }
 zle -N findDirectory
 bindkey "^f" findDirectory
-
 
 #####################################
 #            Load NVM               #
@@ -152,15 +147,13 @@ elif [ -z $TMUX ]; then
     fi
 fi
 
-export PATH="$PATH:/home/forbi/.dotnet/tools:/home/forbi/.cargo/bin"
 
 source "/home/forbi/.sdkman/bin/sdkman-init.sh"
 source /usr/share/git-flow/git-flow-completion.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$HOME/.rvm/bin"
 
 export AES_CYPHER_KEY_DEVELOPMENT=***REMOVED***
 export AES_CYPHER_KEY_TESTING=***REMOVED***
 export AES_CYPHER_KEY_PRODUCTION=***REMOVED***
+
