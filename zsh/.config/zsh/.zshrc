@@ -107,7 +107,8 @@ expand-or-complete-with-dots() {
 
 findDirectory(){
     x=$(/bin/fd --base-directory ~/Development --search-path .  --search-path tecnologo -t d -d 2 | fzf)
-    if [[ "$PWD" == "$HOME" ]] ;then
+    git rev-parse --git-dir 2> /dev/null
+    if [[ $? -ne 0 ]] ;then
         tmux rename-window $x; cd "/home/forbi/Development/$x"
     else
         tmux new-window -n $x -c "/home/forbi/Development/$x"
