@@ -43,3 +43,7 @@ zsh/.config/zsh/.zcompdump-Thinky-5.8
 zsh/.config/zsh/.zsh_history
 
 zsh/.config/zsh/.zshrc.zwc
+
+bin/.local/bin/latest.tar.gz
+
+bin/.local/bin/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
