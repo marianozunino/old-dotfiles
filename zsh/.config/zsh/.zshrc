@@ -28,7 +28,7 @@ zgen oh-my-zsh
 # faster git completion
 zgen oh-my-zsh plugins/gitfast
 # reload with src
-zgen oh-my-zsh plugins/zsh_reload
+#zgen oh-my-zsh plugins/zsh_reload
 # systemd alias
 # zplug "plugins/systemd", from:oh-my-zsh
 # aliases
@@ -158,3 +158,5 @@ export AES_CYPHER_KEY_DEVELOPMENT=***REMOVED***
 export AES_CYPHER_KEY_TESTING=***REMOVED***
 export AES_CYPHER_KEY_PRODUCTION=***REMOVED***
 
+
+alias src='omz reload'
