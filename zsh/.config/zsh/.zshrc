@@ -160,3 +160,6 @@ export AES_CYPHER_KEY_PRODUCTION=***REMOVED***
 
 
 alias src='omz reload'
+
+alias copy="xclip -sel clip"
+alias paste="xclip -sel clip -o"

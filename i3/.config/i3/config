@@ -203,6 +203,10 @@
         assign [class="^Evolution$"] 7
         assign [class="^org.remmina.Remmina"] 10
 
+        for_window [workspace=$ws1] layout tabbed
+        assign [class="^Slack"] 1
+        assign [class="^Chromium"] 1
+
         for_window [title="win0"] floating enable border none
         for_window [instance="dropdown"] floating enable
         for_window [instance="dropdown"] resize set 1366 768
@@ -224,16 +228,20 @@
 #        
 
 #Startup stuff
-        # exec --no-startup-id alacritty --class dropdown
+        exec --no-startup-id /usr/bin/lxpolkit
         exec --no-startup-id ~/.local/bin/monitor.sh
         exec --no-startup-id ~/.local/bin/fileOrganizer.py
         exec --no-startup-id ~/.config/polybar/launch.sh
         exec --no-startup-id alacritty --class dropdown
-        # exec --no-startup-id st -n dropdown
         exec_always --no-startup-id numlockx on
         exec_always --no-startup-id feh --randomize --bg-scale ~/Pictures/*
         exec --no-startup-id i3Autostart.sh
         exec --no-startup-id feh --randomize --bg-scale ~/Pictures/*
+        exec --no-startup-id slack
+        exec --no-startup-id chromium
+        exec --no-startup-id GTK_THEME=Mist evolution
+        exec --no-startup-id /opt/firefox/nightly/firefox-bin
+
 
         # Transparency
         #exec_always --no-startup-id compton

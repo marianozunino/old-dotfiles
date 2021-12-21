@@ -53,6 +53,7 @@ alias fd='/bin/fd'
 alias vd='vim -c ":VimwikiMakeDiaryNote"'
 ## launch index page from command line
 alias vw='vim -c ":VimwikiIndex"'
+alias tf='terraform'
 
 
 open () {
