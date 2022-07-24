@@ -1,3 +1,4 @@
+alias src='omz reload'
 alias dc="cd"
 alias ls="ls --color"
 alias ll="ls -thor"
@@ -26,7 +27,7 @@ alias gt="cd ~/Development/"
 alias gc="cd ~/CLionProjects/"
 
 #edit files
-alias vim = 'nvim'
+alias vim='nvim'
 alias zshrc="vim $ZDOTDIR/.zshrc"
 alias tmuxconf="vim ~/.tmux.conf"
 alias doomconf="vim ~/.config/gzdoom/gzdoom.ini"
@@ -34,6 +35,7 @@ alias vimconf="vim ~/.config/nvim/init.vim"
 alias pluginconf="vim ~/.config/nvim/plugins.vim"
 alias i3conf="vim ~/.config/i3/config"
 alias rangerconf="vim ~/.config/ranger/rc.conf"
+alias cssh="vim ~/.ssh/config"
 
 alias syu='yay -Syyu'
 alias g='git'
