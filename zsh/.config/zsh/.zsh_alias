@@ -1,7 +1,7 @@
 alias dc="cd"
 alias ls="ls --color"
 alias ll="ls -thor"
-alias notepad="gvim"
+
 alias orphan="doas pacman -Rns (pacman -Qtdq)"
 alias syncRepo="git fetch --all; git reset --hard origin/master"
 alias sistra="cd ~/dev/sistra ; npm run dev"
@@ -26,6 +26,7 @@ alias gt="cd ~/Development/"
 alias gc="cd ~/CLionProjects/"
 
 #edit files
+alias vim = 'nvim'
 alias zshrc="vim $ZDOTDIR/.zshrc"
 alias tmuxconf="vim ~/.tmux.conf"
 alias doomconf="vim ~/.config/gzdoom/gzdoom.ini"
@@ -54,6 +55,8 @@ alias vd='vim -c ":VimwikiMakeDiaryNote"'
 ## launch index page from command line
 alias vw='vim -c ":VimwikiIndex"'
 alias tf='terraform'
+alias copy="xclip -sel clip"
+alias paste="xclip -sel clip -o"
 
 
 open () {

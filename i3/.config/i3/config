@@ -11,7 +11,7 @@
         floating_modifier $mod
 
         # Border Style
-        client.focused #19141D #19141D #CACACA #19141D #19141D
+        client.focused #19141D #19141D #CACACA #19141D #CACACA
 
 
         set $ws1 "1"
@@ -194,12 +194,14 @@
         for_window [class="Evolution-alarm-notify"] floating enable
         for_window [title="JetBrains Toolbox"] floating enable
         for_window [class="Spotify"] move to workspace 5, workspace --no-auto-back-and-forth 5
+        assign [class="^discord$"] 10
         assign [class="^jetbrains-idea$"] 3
         assign [title="^win0$"] 3
         assign [title=".*Visual Studio Code*."] 3
-        assign [class="^Nightly$"] 2
+        assign [class="^firefox-nightly$"] 2
         assign [class="^Brave-browser$"] 2
         assign [class="^GitKraken$"] 4
+        assign [class="^Sublime_merge$"] 4
         assign [class="^Evolution$"] 7
         assign [class="^org.remmina.Remmina"] 10
 

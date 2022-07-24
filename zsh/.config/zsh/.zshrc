@@ -38,6 +38,8 @@ zgen oh-my-zsh lib/completion.zsh
 zgen oh-my-zsh lib/history.zsh
 zgen oh-my-zsh lib/key-bindings.zsh
 zgen load zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 zgen load zsh-users/zsh-syntax-highlighting
 #fzf plugin
 if _has fzf; then
@@ -51,6 +53,7 @@ export MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_keymap)
 export MNML_RPROMPT=(mnml_git)
 
 zgen load subnixr/minimal
+bindkey -M main "^M" accept-line
 #
 #
 #
@@ -62,6 +65,8 @@ source $ZDOTDIR/.zsh_alias
 if [ -f ~/dotfiles/zsh_local_alias ]; then
     source ~/dotfiles/zsh_local_alias
 fi
+
+alias wacom="xsetwacom set 'Wacom One by Wacom S Pen stylus' MapToOutput HDMI-2; xsetwacom set 'Wacom One by Wacom S Pen stylus' Rotate half"
 
 #####################################
 #               FZF                 #
@@ -118,17 +123,11 @@ findDirectory(){
 zle -N findDirectory
 bindkey "^f" findDirectory
 
-#####################################
-#            Load NVM               #
-#####################################
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-autoload -Uz compinit && compinit -i
-
 #
 #ssh?
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+if [ $TERM_PROGRAM = "vscode" ]; then
+    echo "VSCODE"
+elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "Welcome stranger..."
 #startx?
 elif [ -z "$DISPLAY" ] && [ "$(fgconsole)" = "1" ]; then
@@ -149,10 +148,9 @@ elif [ -z $TMUX ]; then
 fi
 
 
-source "/home/forbi/.sdkman/bin/sdkman-init.sh"
 source /usr/share/git-flow/git-flow-completion.zsh
 
-export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$GOPATH/bin"
 
 export AES_CYPHER_KEY_DEVELOPMENT=***REMOVED***
 export AES_CYPHER_KEY_TESTING=***REMOVED***
@@ -161,5 +159,12 @@ export AES_CYPHER_KEY_PRODUCTION=***REMOVED***
 
 alias src='omz reload'
 
-alias copy="xclip -sel clip"
-alias paste="xclip -sel clip -o"
+. $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+
+autoload -Uz compinit && compinit
+export PATH="$(yarn global bin):$PATH"
+
+
