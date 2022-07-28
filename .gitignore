@@ -47,4 +47,10 @@ zsh/.config/zsh/.zshrc.zwc
 bin/.local/bin/latest.tar.gz
 
 bin/.local/bin/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
+
 .zcompdump*
+
+ranger_devicons
+
+__pycache__
+
