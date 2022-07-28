@@ -1464,6 +1464,9 @@
 
   ull = pull
   ush = push
+  uhs = push
+  uhsup = push -u origin HEAD
+  ushup = push -u origin HEAD
 
   # GitFlow shortcuts
   fid = !git flow init -d
