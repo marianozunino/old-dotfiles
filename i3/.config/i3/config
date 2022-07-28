@@ -52,9 +52,8 @@
         #Rofi
         # bindsym $mod+d exec rofi -show drun -hide-scrollbar -lines 3 -eh 1 -width 40 -location 8 -xoffset 170 -yoffset 70 -padding 30 -disable-history -font "RobotoMono 18"
         bindsym $mod+d exec rofi -show combi -show-icons
-        bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -show-icons
-        #kill
-        bindsym F4 exec rofi -show window
+        bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' && sleep 0.2 && xdotool getactivewindow key "ctrl+shift+v"
+		bindsym F4 exec rofi -show window
         # Power
         bindsym XF86PowerOff exec rofi -show Power -modi Power:$HOME/.config/rofi/power.sh
         bindsym $mod+x exec rofi -show Power -modi Power:$HOME/.config/rofi/kill.sh
