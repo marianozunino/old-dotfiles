@@ -1,13 +1,12 @@
 #!/bin/sh
 #this file is run by i3
 export PATH=~/.local/bin:$PATH
-
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="alacritty"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
-export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-export VIMINIT=":set runtimepath+=$XDG_CONFIG_HOME/vim|:source $MYVIMRC"
+#export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+#export VIMINIT=":set runtimepath+=$XDG_CONFIG_HOME/vim|:source $MYVIMRC"
 export LESSHISTFILE="-"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
