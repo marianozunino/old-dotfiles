@@ -15,3 +15,4 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 nm-applet &
 locker.sh &
 insync start
+greenclip daemon &
