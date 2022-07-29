@@ -1,0 +1,16 @@
+#!/bin/bash
+
+bin=~/.local/bin/sublime_merge/sublime_merge
+folder=$HOME/.local/bin/sublime_merge
+
+SOURCE="https://download.sublimetext.com/sublime_merge_build_2074_x64.tar.xz"
+
+# if sm binary is not found, download it
+if [ ! -d $folder ]; then
+	echo "Downloading Sublime Merge tar..."
+	curl -sL $SOURCE | tar -xJvf - -C $HOME/.local/bin
+	echo "Sublime Merge tar downloaded."
+fi
+
+# execute lens
+$bin $@
