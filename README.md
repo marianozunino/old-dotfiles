@@ -10,8 +10,6 @@
 
 ```
 
-**This are my personal dotfiles, @$#& you if you don't like em.**
-
 ## Features
 
 - **`stow` powered:** symlink dotfiles and thus keep them always up-to-date in your repository
