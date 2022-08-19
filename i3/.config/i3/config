@@ -198,6 +198,7 @@
         assign [class="^jetbrains-idea$"] 3
         assign [title="^win0$"] 3
         assign [title=".*Visual Studio Code*."] 3
+        assign [title="^nvim ~ "] 3
         assign [class="^firefox-nightly$"] 2
         assign [class="^Brave-browser$"] 2
         assign [class="^GitKraken$"] 4
