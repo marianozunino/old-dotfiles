@@ -3,7 +3,7 @@ configuration {
 	lines: 5;
 	bw: 2;
 	padding: 0;
-	yoffset: -250;
+	yoffset: 0;
 	fixed-num-lines: false;
 	terminal: "alacritty";
 	sorting-method: "fzf";

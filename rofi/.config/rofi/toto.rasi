@@ -5,6 +5,7 @@ configuration {
   font: "Monaco for Powerline 12";
 }
 * {
+  purple:     #000000;
   black:      #000000;
   red:        #eb6e67;
   green:      #95ee8f;

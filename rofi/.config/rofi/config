@@ -11,5 +11,5 @@ rofi.display-combi:	Search
 rofi.bw:		2
 rofi.padding:		0
 rofi.fixed-num-lines:	false
-rofi.theme:		vapor.rasi
+rofi.theme:		toto.rasi
 rofi.yoffset:		-130
