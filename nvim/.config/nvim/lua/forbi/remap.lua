@@ -1,6 +1,5 @@
 local nnoremap = require("forbi.keymap").nnoremap
 local inoremap = require("forbi.keymap").inoremap
-local utils = require("telescope.utils")
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 nnoremap("Y", "yy")
@@ -20,6 +19,7 @@ nnoremap("<leader>gf", function()
 end)
 
 nnoremap("<C-p>", function()
+	local utils = require("telescope.utils")
 	local _, ret, _ = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
 	if ret == 0 then
 		require("telescope.builtin").git_files()
@@ -28,14 +28,24 @@ nnoremap("<C-p>", function()
 	end
 end)
 
-nnoremap("<leader>pw", function()
+nnoremap("<leader>gw", function()
 	require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
 end)
 
-nnoremap(";", function()
-	require("telescope.builtin").buffers()
+nnoremap(";", require("telescope.builtin").buffers)
+nnoremap("<leader>vh", require("telescope.builtin").help_tags)
+-- nnoremap("<leader>n", require("telescope.builtin").help_tags)
+nnoremap("<leader>n", ":NvimTreeToggle<cr>")
+
+nnoremap("<space>vv", ":DiffviewOpen ")
+
+nnoremap("<leader>gs", function()
+	require("neogit").open()
+end)
+nnoremap("<leader>gc", function()
+	require("neogit").open({ "commit" })
 end)
 
-nnoremap("<leader>vh", function()
-	require("telescope.builtin").help_tags()
-end)
+nnoremap("<leader>m", ":Telescope marks<cr>")
+nnoremap("<leader>gr", ":Telescope lsp_references<cr>")
+nnoremap("<leader><leader>", "<c-^>")

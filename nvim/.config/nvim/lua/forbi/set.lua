@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = "a:block-blinkwait175-blinkoff150-blinkon175"
 vim.opt.cursorline = true
 
 vim.opt.nu = true
@@ -15,9 +15,9 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 vim.g.mapleader = " "
-vim.opt.clipboard = 'unnamedplus' -- Global clipboard 
-vim.opt.mouse = 'a' -- Allow to use mouse from terminal
-vim.opt.colorcolumn = '80'
+vim.opt.clipboard = "unnamedplus" -- Global clipboard
+vim.opt.mouse = "a" -- Allow to use mouse from terminal
+vim.opt.colorcolumn = "80"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -43,3 +43,19 @@ vim.opt.updatetime = 50
 vim.opt.shortmess:append("c")
 
 vim.g.neoformat_try_node_exe = 1
+
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+local group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 700 })
+	end,
+	group = group,
+})
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldnestmax = 3
+vim.opt.foldenable = false
+vim.opt.scrolloff = 999

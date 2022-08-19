@@ -1,24 +1,73 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function()
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
-	use("folke/tokyonight.nvim")
+
+	-- use("folke/tokyonight.nvim")
 	use("gruvbox-community/gruvbox")
 
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
-	use("nvim-telescope/telescope.nvim")
 
-	use("github/copilot.vim")
+	use("nvim-telescope/telescope.nvim")
+	use("gbrlsnchs/telescope-lsp-handlers.nvim")
 
 	use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-	use("hrsh7th/nvim-cmp")
-	use("tzachar/cmp-tabnine", { run = "./install.sh" })
-	use("hrsh7th/cmp-nvim-lsp")
 
-	use({ "jose-elias-alvarez/null-ls.nvim", config = "require('null-ls-config')" })
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("onsails/lspkind.nvim")
+
+	use("saadparwaiz1/cmp_luasnip")
+	use("L3MON4D3/LuaSnip")
+
+	use("jose-elias-alvarez/null-ls.nvim")
+
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+		},
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
+
+	use("numToStr/Comment.nvim")
+
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+
+	--
+	-- GIT:
+	use("TimUntersberger/neogit")
+	use("sindrets/diffview.nvim")
+
+	use("github/copilot.vim")
+	use("ethanholz/nvim-lastplace")
+
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+
+	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 end)
