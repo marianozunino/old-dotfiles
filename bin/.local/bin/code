@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+directory_name=`basename $PWD`
+
+# spawn alacritty with vim in the current directory in the background
+alacritty --working-directory "${PWD}" --title "nvim ~ $directory_name" -e nvim . &
+# disown the child process so it doesn't get killed when the parent exits
+disown
