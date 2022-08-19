@@ -49,3 +49,8 @@ end)
 nnoremap("<leader>m", ":Telescope marks<cr>")
 nnoremap("<leader>gr", ":Telescope lsp_references<cr>")
 nnoremap("<leader><leader>", "<c-^>")
+--
+-- create a user command to exit all buffers without saving
+vim.api.nvim_create_user_command("Q", function()
+	vim.api.nvim_command("bd!|qall!")
+end, { nargs = 0 })
