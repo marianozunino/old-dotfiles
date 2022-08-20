@@ -1,5 +1,10 @@
 local nnoremap = require("forbi.keymap").nnoremap
 local inoremap = require("forbi.keymap").inoremap
+local dev_folders = require("forbi.telescope").dev_folders
+
+nnoremap("<leader>tt", function()
+	dev_folders()
+end)
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 nnoremap("Y", "yy")
