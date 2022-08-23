@@ -1,10 +1,16 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
+lspkind.init({
+	symbol_map = {
+		Copilot = "",
+	},
+})
+
 cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
-			-- mode = "symbol", -- show only symbol annotations
+			mode = "symbol", -- show only symbol annotations
 			-- maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 			with_text = true,
 			menu = {
@@ -57,6 +63,9 @@ cmp.setup({
 	}),
 
 	sources = cmp.config.sources({
+		-- Copilot Source
+		{ name = "copilot" },
+		-- other sources
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },

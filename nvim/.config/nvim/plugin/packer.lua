@@ -25,6 +25,10 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp")
+	use({
+		"zbirenbaum/copilot-cmp",
+		module = "copilot_cmp",
+	})
 	use("onsails/lspkind.nvim")
 
 	use("saadparwaiz1/cmp_luasnip")
@@ -59,7 +63,20 @@ return require("packer").startup(function()
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
 
-	use("github/copilot.vim")
+	-- use("github/copilot.vim")
+	use({
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup({
+					ft_disable = {
+						"dap-repl",
+					},
+				})
+			end, 100)
+		end,
+	})
 	use("ethanholz/nvim-lastplace")
 
 	use({
@@ -70,4 +87,13 @@ return require("packer").startup(function()
 	})
 
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+
+	-- debugger
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
+	use("leoluz/nvim-dap-go")
+
+	use({ "williamboman/mason.nvim" })
+	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 end)
