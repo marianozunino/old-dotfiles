@@ -5,7 +5,7 @@ ssh/known_hosts
 !.gitignore
 .config/nvim/plugged/
 .config/nvim/snippets/
-.config/ranger/
+ranger/
 
 *.pch
 
