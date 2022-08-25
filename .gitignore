@@ -1,22 +1,11 @@
 ssh/known_hosts
 .config/fish/fishd.*
-.config/ranger/history
 .tmux/plugins/tmux-*
 # But not these files...
 !.gitignore
 .config/nvim/plugged/
 .config/nvim/snippets/
-.config/ranger/tagged
-
-.config/ranger/bookmarks\.new
-
-.config/ranger/bookmarks
-
-.config/ranger/colorschemes/__init__\.py
-
-.config/ranger/colorschemes/__pycache__/
-
-.config/ranger/colorschemes/
+.config/ranger/
 
 *.pch
 
