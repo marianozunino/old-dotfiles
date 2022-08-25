@@ -1,8 +1,24 @@
 #!/usr/bin/env sh
 
-directory_name=`basename $PWD`
+# if no	argument is given, use the current directory
+if [ $# -eq 0 ]; then
+	DIR="."
+  file_name=`$DIR`
+else
+	# if the is a file, use the directory of the file
+	if [ -f $1 ]; then
+		file_name=$1
+		DIR=$(dirname $1)
+	else
+		DIR=$1
+		file_name=`$DIR`
+	fi
+fi
+
+
+directory_name=`basename $DIR`
 
 # spawn alacritty with vim in the current directory in the background
-alacritty --working-directory "${PWD}" --title "nvim ~ $directory_name" -e nvim . &
+alacritty --working-directory "${DIR}" --title "nvim ~ $directory_name" -e nvim $file_name &
 # disown the child process so it doesn't get killed when the parent exits
 disown
