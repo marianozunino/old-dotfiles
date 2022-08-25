@@ -40,6 +40,8 @@
 
         bindsym $mod+bracketright move workspace to output right
         bindsym $mod+bracketleft move workspace to output left
+				# toggle gromit
+				bindsym $mod+g exec --no-startup-id gromit-mpx -t 0
 
 #
 
