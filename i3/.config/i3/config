@@ -55,7 +55,8 @@
         # bindsym $mod+d exec rofi -show drun -hide-scrollbar -lines 3 -eh 1 -width 40 -location 8 -xoffset 170 -yoffset 70 -padding 30 -disable-history -font "RobotoMono 18"
         bindsym $mod+d exec rofi -show combi -show-icons
         bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' && sleep 0.2 && xdotool getactivewindow key "ctrl+shift+v"
-		bindsym F4 exec rofi -show window
+				bindsym F4 exec rofi -show window
+				bindsym $mod+t exec /bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | rofi -dmenu | xargs -i code ~/Development/{}
         # Power
         bindsym XF86PowerOff exec rofi -show Power -modi Power:$HOME/.config/rofi/power.sh
         bindsym $mod+x exec rofi -show Power -modi Power:$HOME/.config/rofi/kill.sh
@@ -181,7 +182,7 @@
         #call scratchpad
         bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
         #start terimte in scratchpad
-        bindsym $mod+t exec --no-startup-id alacritty --class dropdown
+        bindsym $mod+Shift+u exec --no-startup-id alacritty --class dropdown
 
         # Make the currently focused window a scratchpad
         bindsym $mod+Shift+minus move scratchpad
