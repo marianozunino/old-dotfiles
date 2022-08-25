@@ -3,7 +3,7 @@
 # if no	argument is given, use the current directory
 if [ $# -eq 0 ]; then
 	DIR="."
-  file_name=`$DIR`
+  file_name=$DIR
 else
 	# if the is a file, use the directory of the file
 	if [ -f $1 ]; then
@@ -11,7 +11,7 @@ else
 		DIR=$(dirname $1)
 	else
 		DIR=$1
-		file_name=`$DIR`
+		file_name=$DIR
 	fi
 fi
 
