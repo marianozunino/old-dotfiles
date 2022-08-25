@@ -49,8 +49,9 @@ fi
 
 export MNML_INFOLN=()
 export MNML_MAGICENTER=(mnml_me_git)
-export MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_keymap)
-export MNML_RPROMPT=(mnml_git)
+MNML_INFOLN=()
+MNML_PROMPT=(mnml_ssh  mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_git mnml_keymap )
+MNML_RPROMPT=()
 
 zgen load subnixr/minimal
 bindkey -M main "^M" accept-line
@@ -111,7 +112,7 @@ expand-or-complete-with-dots() {
 # bindkey "^I" expand-or-complete-with-dots
 
 findDirectory(){
-    x=$(/bin/fd --base-directory ~/Development --search-path .  --search-path tecnologo -t d -d 2 | fzf)
+    x=$(/bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | fzf)
     git rev-parse --git-dir 2> /dev/null
     if [[ $? -ne 0 ]] ;then
         tmux rename-window $x; cd "/home/forbi/Development/$x"
