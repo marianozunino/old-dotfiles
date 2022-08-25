@@ -47,8 +47,6 @@ if _has fzf; then
     zgen load junegunn/fzf shell/key-bindings.zsh
 fi
 
-export MNML_INFOLN=()
-export MNML_MAGICENTER=(mnml_me_git)
 MNML_INFOLN=()
 MNML_PROMPT=(mnml_ssh  mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_git mnml_keymap )
 MNML_RPROMPT=()
