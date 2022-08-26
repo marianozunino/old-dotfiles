@@ -1,6 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 local nnoremap = require("forbi.keymap").nnoremap
+
 require("dap-go").setup()
 
 local home = os.getenv("HOME")
@@ -50,7 +51,7 @@ require("nvim-dap-virtual-text").setup({
 	highlight_new_as_changed = true,
 
 	-- prefix virtual text with comment string
-	commented = false,
+	commented = true,
 
 	show_stop_reason = true,
 
@@ -59,7 +60,25 @@ require("nvim-dap-virtual-text").setup({
 	all_frames = false, -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
 })
 
-require("dapui").setup()
+require("dapui").setup({
+	layouts = {
+		{
+			elements = {
+				-- Elements can be strings or table with id and size keys.
+				{ id = "scopes", size = 0.25 },
+				"breakpoints",
+				"stacks",
+			},
+			size = 0.20,
+			position = "left",
+		},
+		{
+			elements = { "repl" },
+			size = 0.10,
+			position = "bottom",
+		},
+	},
+})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open(1)
@@ -81,9 +100,9 @@ nnoremap("<End>", function()
 	dapui.toggle(2)
 end)
 
-nnoremap("<leader><leader>", function()
-	dap.close()
-end)
+-- nnoremap("<leader><leader>", function()
+-- 	dap.close()
+-- end)
 
 nnoremap("<Up>", function()
 	dap.continue()
