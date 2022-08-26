@@ -54,6 +54,10 @@ end)
 nnoremap("<leader>m", ":Telescope marks<cr>")
 nnoremap("<leader>gr", ":Telescope lsp_references<cr>")
 nnoremap("<leader><leader>", "<c-^>")
+
+-- jester
+nnoremap("<leader>jr", ":lua require('jester').run()<CR>")
+nnoremap("<leader>jd", ":lua require('jester').debug()<CR>")
 --
 -- create a user command to exit all buffers without saving
 vim.api.nvim_create_user_command("Q", function()

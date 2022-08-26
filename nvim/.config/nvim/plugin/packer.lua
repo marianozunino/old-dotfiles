@@ -94,6 +94,7 @@ return require("packer").startup(function()
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
 	use("leoluz/nvim-dap-go")
+	use("David-Kunz/jester")
 
 	use({ "williamboman/mason.nvim" })
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
