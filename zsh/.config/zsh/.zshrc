@@ -124,7 +124,9 @@ bindkey "^f" findDirectory
 
 #
 #ssh?
-if [ $TERM_PROGRAM = "vscode" ]; then
+# if VIMRUNTIME is set, then we're in vim, so don't do anything
+if [ "$VIMRUNTIME" ]; then
+elif [ $TERM_PROGRAM = "vscode" ]; then
     echo "VSCODE"
 elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "Welcome stranger..."

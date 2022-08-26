@@ -25,11 +25,12 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp")
-	use({
-		"zbirenbaum/copilot-cmp",
-		module = "copilot_cmp",
-	})
+	-- use({
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	module = "copilot_cmp",
+	-- })
 	use("onsails/lspkind.nvim")
+	use("github/copilot.vim")
 
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
@@ -64,19 +65,19 @@ return require("packer").startup(function()
 	use("sindrets/diffview.nvim")
 
 	-- use("github/copilot.vim")
-	use({
-		"zbirenbaum/copilot.lua",
-		event = { "VimEnter" },
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup({
-					ft_disable = {
-						"dap-repl",
-					},
-				})
-			end, 100)
-		end,
-	})
+	-- use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = { "VimEnter" },
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("copilot").setup({
+	-- 				ft_disable = {
+	-- 					"dap-repl",
+	-- 				},
+	-- 			})
+	-- 		end, 100)
+	-- 	end,
+	-- })
 	use("ethanholz/nvim-lastplace")
 
 	use({

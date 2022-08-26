@@ -59,3 +59,8 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 3
 vim.opt.foldenable = false
 vim.opt.scrolloff = 999
+
+vim.g.copilot_filetypes = {
+	["dap-repl"] = false,
+}
+vim.g.copilot_node_command = "~/.asdf/shims/node"
