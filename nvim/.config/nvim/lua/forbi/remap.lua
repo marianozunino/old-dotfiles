@@ -27,7 +27,9 @@ nnoremap("<C-p>", function()
 	local utils = require("telescope.utils")
 	local _, ret, _ = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
 	if ret == 0 then
-		require("telescope.builtin").git_files()
+		require("telescope.builtin").git_files({
+			show_untracked = true,
+		})
 	else
 		require("telescope.builtin").find_files()
 	end
