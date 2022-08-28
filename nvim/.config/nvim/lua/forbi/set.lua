@@ -64,3 +64,9 @@ vim.g.copilot_filetypes = {
 	["dap-repl"] = false,
 }
 vim.g.copilot_node_command = "~/.asdf/shims/node"
+
+--
+-- neovide
+vim.g.neovide_cursor_vfx_mode = ""
+vim.g.neovide_cursor_animation_length = 0.05
+vim.opt.guifont = { "Fira Code Retina", ":h11" }

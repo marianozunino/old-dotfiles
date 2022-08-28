@@ -19,6 +19,7 @@ fi
 directory_name=`basename $DIR`
 
 # spawn alacritty with vim in the current directory in the background
-alacritty --working-directory "${DIR}" --title "nvim ~ $directory_name" -e nvim $file_name &
+# alacritty --working-directory "${DIR}" --title "nvim ~ $directory_name" -e nvim $file_name &
+neovide --nofork --notabs --x11-wm-class "nvim ~ $directory_name" --maximized $file_name &
 # disown the child process so it doesn't get killed when the parent exits
 disown

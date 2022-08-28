@@ -74,3 +74,18 @@ transfer() {
     echo
 }
 
+
+wacom() {
+	# if Pen is not in the list, then create it
+	if ! xinput list | grep -q "Pen pointer"; then
+		xinput create-master "Pen"
+		xinput reattach "Wacom One by Wacom S Pen stylus" "Pen pointer"
+	fi
+
+	xsetwacom set 'Wacom One by Wacom S Pen stylus' MapToOutput DP-1; xsetwacom set 'Wacom One by Wacom S Pen stylus' Rotate half
+
+	if ! pgrep -x "gromit-mpx" > /dev/null; then
+		gromit-mpx -o 1 > /dev/null 2> /dev/null &
+		disown
+	fi
+}

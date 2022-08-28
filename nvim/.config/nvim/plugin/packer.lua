@@ -98,4 +98,12 @@ return require("packer").startup(function()
 
 	use({ "williamboman/mason.nvim" })
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
+
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 end)

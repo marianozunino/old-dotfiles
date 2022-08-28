@@ -1,6 +1,4 @@
 # General Config
-
-
         set $mod Mod4
 
         # Font for window titles. Will also be used by the bar unless a different font
@@ -167,7 +165,7 @@
 
         }
 
-        
+
         bindsym $mod+p exec --no-startup-id flameshot gui
 
         # The middle button over a titlebar kills the window
@@ -201,7 +199,7 @@
         assign [class="^jetbrains-idea$"] 3
         assign [title="^win0$"] 3
         assign [title=".*Visual Studio Code*."] 3
-        assign [title="^nvim ~ "] 3
+        assign [class="^nvim ~ "] 3
         assign [class="^firefox-nightly$"] 2
         assign [class="^Brave-browser$"] 2
         assign [class="^GitKraken$"] 4

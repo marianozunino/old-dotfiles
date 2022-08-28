@@ -1,7 +1,6 @@
-export LANG=en_US.UTF-8
-export GOPATH=/home/forbi/Development/random/go
-export ZDOTDIR="$HOME/.config/zsh"
-stty -ixon
+. $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
 
 #####################################
 #               BASE16              #
@@ -11,9 +10,6 @@ BASE16_SHELL="$HOME/dotfiles/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-_has() {
-  return $( whence $1 >/dev/null )
-}
 
 #####################################
 #               ZGEN                #
@@ -23,35 +19,34 @@ if [[ ! -d ~/.config/zgen ]];then
 fi
 source "${HOME}/.config/zgen/zgen.zsh"
 
-#load base system
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
 zgen oh-my-zsh
-# faster git completion
 zgen oh-my-zsh plugins/gitfast
-# reload with src
-#zgen oh-my-zsh plugins/zsh_reload
-# systemd alias
-# zplug "plugins/systemd", from:oh-my-zsh
-# aliases
 zgen oh-my-zsh plugins/common-aliases
-## Load completion library for those sweet [tab] squares
 zgen oh-my-zsh lib/completion.zsh
 zgen oh-my-zsh lib/history.zsh
 zgen oh-my-zsh lib/key-bindings.zsh
-zgen load zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
 zgen load zsh-users/zsh-syntax-highlighting
-#fzf plugin
-if _has fzf; then
-    zgen load junegunn/fzf shell/completion.zsh
-    zgen load junegunn/fzf shell/key-bindings.zsh
-fi
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+zgen load zsh-users/zsh-autosuggestions
+
 
 MNML_INFOLN=()
 MNML_PROMPT=(mnml_ssh  mnml_pyenv mnml_status 'mnml_cwd 2 0' mnml_git mnml_keymap )
 MNML_RPROMPT=()
 
 zgen load subnixr/minimal
+
+#fzf plugin
+if _has fzf; then
+    zgen load junegunn/fzf shell/completion.zsh
+    zgen load junegunn/fzf shell/key-bindings.zsh
+fi
+
 bindkey -M main "^M" accept-line
 #
 #
@@ -65,7 +60,6 @@ if [ -f ~/dotfiles/zsh_local_alias ]; then
     source ~/dotfiles/zsh_local_alias
 fi
 
-alias wacom="xsetwacom set 'Wacom One by Wacom S Pen stylus' MapToOutput HDMI-2; xsetwacom set 'Wacom One by Wacom S Pen stylus' Rotate half"
 
 #####################################
 #               FZF                 #
@@ -122,7 +116,7 @@ findDirectory(){
 zle -N findDirectory
 bindkey "^f" findDirectory
 
-#
+
 #ssh?
 # if VIMRUNTIME is set, then we're in vim, so don't do anything
 if [ "$VIMRUNTIME" ]; then
@@ -151,21 +145,9 @@ fi
 
 source /usr/share/git-flow/git-flow-completion.zsh
 
-export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$GOPATH/bin"
 
-export AES_CYPHER_KEY_DEVELOPMENT=***REMOVED***
-export AES_CYPHER_KEY_TESTING=***REMOVED***
-export AES_CYPHER_KEY_PRODUCTION=***REMOVED***
+export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$(yarn global bin)"
 
 
-alias src='omz reload'
-
-. $HOME/.asdf/asdf.sh
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
-
 autoload -Uz compinit && compinit
-export PATH="$(yarn global bin):$PATH"
-
-
