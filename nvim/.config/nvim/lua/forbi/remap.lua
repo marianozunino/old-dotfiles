@@ -60,6 +60,11 @@ nnoremap("<leader><leader>", "<c-^>")
 -- jester
 nnoremap("<leader>jr", ":lua require('jester').run()<CR>")
 nnoremap("<leader>jd", ":lua require('jester').debug()<CR>")
+
+nnoremap("<M-h>", ":vertical resize +3<CR>")
+nnoremap("<M-l>", ":vertical resize -3<CR>")
+nnoremap("<M-j>", ":resize +3<CR>")
+nnoremap("<M-k>", ":resize -3<CR>")
 --
 -- create a user command to exit all buffers without saving
 vim.api.nvim_create_user_command("Q", function()

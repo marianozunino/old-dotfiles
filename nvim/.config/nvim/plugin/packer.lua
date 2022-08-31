@@ -106,4 +106,9 @@ return require("packer").startup(function()
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	})
+
+	use("lewis6991/impatient.nvim")
+	use("sainnhe/gruvbox-material")
+	use("aktersnurra/no-clown-fiesta.nvim")
+	use("rebelot/kanagawa.nvim")
 end)

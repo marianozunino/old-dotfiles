@@ -1,5 +1,6 @@
 require("lualine").setup({
-	options = { theme = "codedark" },
+	options = { theme = "no-clown-fiesta" },
+	-- options = { theme = "codedark" },
 })
 
 require("Comment").setup({
@@ -33,10 +34,12 @@ require("mason-tool-installer").setup({
 		"lua-language-server",
 		"typescript-language-server",
 		"gopls",
+		"solargraph",
 		-- Fixers/Linters
 		"stylua",
 		"eslint_d",
 		"prettierd",
+		"rubocop",
 		-- dap
 		"node-debug2-adapter",
 		"go-debug-adapter",
