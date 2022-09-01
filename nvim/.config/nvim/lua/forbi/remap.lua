@@ -42,7 +42,7 @@ end)
 nnoremap(";", require("telescope.builtin").buffers)
 nnoremap("<leader>vh", require("telescope.builtin").help_tags)
 -- nnoremap("<leader>n", require("telescope.builtin").help_tags)
-nnoremap("<leader>n", ":NvimTreeToggle<cr>")
+nnoremap("<leader>n", ":NeoTreeRevealToggle<cr>")
 
 nnoremap("<space>vv", ":DiffviewOpen ")
 

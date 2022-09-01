@@ -1,5 +1,6 @@
 require("lualine").setup({
-	options = { theme = "no-clown-fiesta" },
+	options = { theme = "auto" },
+	-- options = { theme = "no-clown-fiesta" },
 	-- options = { theme = "codedark" },
 })
 
@@ -139,3 +140,5 @@ require("jester").setup({
 		disableOptimisticBPs = true,
 	},
 })
+
+vim.g.pandoc_preview_pdf_cmd = "zathura"

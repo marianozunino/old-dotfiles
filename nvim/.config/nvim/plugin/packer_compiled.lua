@@ -165,10 +165,20 @@ _G.packer_plugins = {
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   neogit = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -210,11 +220,6 @@ _G.packer_plugins = {
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -239,6 +244,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["pandoc-preview.vim"] = {
+    loaded = true,
+    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/pandoc-preview.vim",
+    url = "https://github.com/lingnand/pandoc-preview.vim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -269,6 +279,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-grammarous"] = {
+    loaded = true,
+    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/vim-grammarous",
+    url = "https://github.com/rhysd/vim-grammarous"
   }
 }
 

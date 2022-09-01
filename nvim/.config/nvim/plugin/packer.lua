@@ -42,12 +42,22 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	requires = {
+	-- 		"kyazdani42/nvim-web-devicons", -- optional, for file icons
+	-- 	},
+	-- 	tag = "nightly", -- optional, updated every week. (see issue #1193)
+	-- })
+
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
 		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
 		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
 	use("numToStr/Comment.nvim") --  Commenting plugin
@@ -104,4 +114,8 @@ return require("packer").startup(function()
 
 	-- Pretty csv
 	use("mechatroner/rainbow_csv")
+	use("lingnand/pandoc-preview.vim")
+
+	--Grammar checking because I can't english
+	use("rhysd/vim-grammarous")
 end)
