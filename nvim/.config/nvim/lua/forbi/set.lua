@@ -62,6 +62,7 @@ vim.opt.scrolloff = 999
 
 vim.g.copilot_filetypes = {
 	["dap-repl"] = false,
+	["markdown"] = true,
 }
 vim.g.copilot_node_command = "~/.asdf/shims/node"
 

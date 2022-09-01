@@ -2,41 +2,41 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function()
+	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
+
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-- use("folke/tokyonight.nvim")
-	use("gruvbox-community/gruvbox")
-
+	-- treesitter stuff
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
+	use("nvim-treesitter/nvim-treesitter-context") -- Sticky header (class, for, function, etc)
+	use("windwp/nvim-ts-autotag") -- Close html tags automagically
 
+	-- Telescope stuff
 	use("nvim-telescope/telescope.nvim")
 	use("gbrlsnchs/telescope-lsp-handlers.nvim")
 
+	-- LSP stuff
 	use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
+	use("jose-elias-alvarez/null-ls.nvim")
 
+	-- Completion stuff
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp")
-	-- use({
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	module = "copilot_cmp",
-	-- })
 	use("onsails/lspkind.nvim")
 	use("github/copilot.vim")
 
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 
-	use("jose-elias-alvarez/null-ls.nvim")
-
+	-- Lua line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -50,43 +50,22 @@ return require("packer").startup(function()
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
-	use("numToStr/Comment.nvim")
-
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
+	use("numToStr/Comment.nvim") --  Commenting plugin
 
 	--
 	-- GIT:
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
-
-	-- use("github/copilot.vim")
-	-- use({
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = { "VimEnter" },
-	-- 	config = function()
-	-- 		vim.defer_fn(function()
-	-- 			require("copilot").setup({
-	-- 				ft_disable = {
-	-- 					"dap-repl",
-	-- 				},
-	-- 			})
-	-- 		end, 100)
-	-- 	end,
-	-- })
-	use("ethanholz/nvim-lastplace")
-
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
-	})
+	}) -- display git signs in the buffer
 
+	use("ethanholz/nvim-lastplace")
+
+	-- Make it look pretty with buffer headers
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- debugger
@@ -96,9 +75,11 @@ return require("packer").startup(function()
 	use("leoluz/nvim-dap-go")
 	use("David-Kunz/jester")
 
+	-- Handle LSP, Linters, and Formatters for me
 	use({ "williamboman/mason.nvim" })
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
+	--
 	use({
 		"ThePrimeagen/refactoring.nvim",
 		requires = {
@@ -107,8 +88,20 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- Load nvim quicker using cache
 	use("lewis6991/impatient.nvim")
+
+	-- Some themes
 	use("sainnhe/gruvbox-material")
-	use("aktersnurra/no-clown-fiesta.nvim")
-	use("rebelot/kanagawa.nvim")
+
+	-- Markdown, Mermaid, etc
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
+
+	-- Pretty csv
+	use("mechatroner/rainbow_csv")
 end)
