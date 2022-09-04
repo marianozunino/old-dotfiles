@@ -90,6 +90,7 @@ return require("packer").startup(function()
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
 	--
+	use("ThePrimeagen/harpoon")
 	use({
 		"ThePrimeagen/refactoring.nvim",
 		requires = {

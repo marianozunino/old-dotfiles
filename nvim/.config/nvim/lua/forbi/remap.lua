@@ -29,6 +29,16 @@ nnoremap("<C-p>", function()
 	if ret == 0 then
 		require("telescope.builtin").git_files({
 			show_untracked = true,
+			git_command = {
+				"git",
+				"ls-files",
+				"--exclude-standard",
+				"--cached",
+				"-x",
+				"!*.tfvars",
+				"-x",
+				"!.env",
+			},
 		})
 	else
 		require("telescope.builtin").find_files()
@@ -70,3 +80,23 @@ nnoremap("<M-k>", ":resize -3<CR>")
 vim.api.nvim_create_user_command("Q", function()
 	vim.api.nvim_command("bd!|qall!")
 end, { nargs = 0 })
+
+nnoremap("<leader>a", require("harpoon.mark").add_file, { silent = true })
+nnoremap("<C-h>", require("harpoon.ui").toggle_quick_menu, { silent = true })
+nnoremap("<leader>tc", require("harpoon.cmd-ui").toggle_quick_menu, { silent = true })
+
+nnoremap("<leader>y", function()
+	require("harpoon.ui").nav_file(1)
+end, { silent = true })
+
+nnoremap("<leader>u", function()
+	require("harpoon.ui").nav_file(2)
+end, { silent = true })
+
+nnoremap("<leader>i", function()
+	require("harpoon.ui").nav_file(3)
+end, { silent = true })
+
+nnoremap("<leader>o", function()
+	require("harpoon.ui").nav_file(4)
+end, { silent = true })
