@@ -30,6 +30,7 @@ zgen oh-my-zsh lib/completion.zsh
 zgen oh-my-zsh lib/history.zsh
 zgen oh-my-zsh lib/key-bindings.zsh
 zgen load zsh-users/zsh-syntax-highlighting
+zgen load sobolevn/wakatime-zsh-plugin
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zgen load zsh-users/zsh-autosuggestions

@@ -19,7 +19,9 @@ return require("packer").startup(function()
 	-- Telescope stuff
 	use("nvim-telescope/telescope.nvim")
 	use("gbrlsnchs/telescope-lsp-handlers.nvim")
+	use("xiyaowong/telescope-emoji.nvim")
 
+	--
 	-- LSP stuff
 	use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -119,4 +121,6 @@ return require("packer").startup(function()
 
 	--Grammar checking because I can't english
 	use("rhysd/vim-grammarous")
+
+	use("wakatime/vim-wakatime")
 end)
