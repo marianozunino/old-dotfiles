@@ -34,6 +34,7 @@ require("mason-tool-installer").setup({
 		-- LSP
 		"lua-language-server",
 		"typescript-language-server",
+		"graphql-language-service-cli",
 		"gopls",
 		"solargraph",
 		-- Fixers/Linters
