@@ -51,6 +51,7 @@ return require("packer").startup(function()
 	-- 	},
 	-- 	tag = "nightly", -- optional, updated every week. (see issue #1193)
 	-- })
+	use("kyazdani42/nvim-web-devicons")
 
 	use({
 		"nvim-neo-tree/neo-tree.nvim",

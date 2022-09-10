@@ -1,5 +1,6 @@
 local nnoremap = require("forbi.keymap").nnoremap
 local inoremap = require("forbi.keymap").inoremap
+local vnoremap = require("forbi.keymap").vnoremap
 local dev_folders = require("forbi.telescope").dev_folders
 
 nnoremap("<leader>tt", function()
@@ -100,3 +101,7 @@ end, { silent = true })
 nnoremap("<leader>o", function()
 	require("harpoon.ui").nav_file(4)
 end, { silent = true })
+
+-- move lines
+vnoremap("J", ":m '>+1<CR>gv=gv")
+vnoremap("K", ":m '<-2<CR>gv=gv")
