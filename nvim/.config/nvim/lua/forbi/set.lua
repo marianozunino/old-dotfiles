@@ -74,3 +74,9 @@ vim.opt.guifont = { "Fira Code Retina", ":h11" }
 
 vim.opt.title = true
 vim.opt.titlestring = "Code - %{substitute(getcwd(), $HOME, '~', '')}"
+
+-- Theme
+vim.opt.background = "dark"
+vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_better_performance = 1
+vim.cmd("colorscheme gruvbox-material")

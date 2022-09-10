@@ -1,3 +1,5 @@
+require("forbi.packer")
+require("impatient")
 require("forbi.set")
 require("forbi.lsp")
 require("forbi.snip")
