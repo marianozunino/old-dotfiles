@@ -35,6 +35,7 @@ local function config(_config)
 
 			local nnoremap = require("forbi.keymap").nnoremap
 			local inoremap = require("forbi.keymap").inoremap
+			local vnoremap = require("forbi.keymap").vnoremap
 			nnoremap("gd", vim.lsp.buf.definition)
 			nnoremap("gt", vim.lsp.buf.type_definition)
 			nnoremap("gi", vim.lsp.buf.implementation)
@@ -42,6 +43,7 @@ local function config(_config)
 
 			nnoremap("<leader>r", vim.lsp.buf.rename)
 			nnoremap("<leader>ca", vim.lsp.buf.code_action)
+			vnoremap("<leader>ca", vim.lsp.buf.code_action)
 
 			nnoremap("[d", vim.diagnostic.goto_next) -- goto next diagnostic
 			nnoremap("]d", vim.diagnostic.goto_prev) -- goto prev diagnostic

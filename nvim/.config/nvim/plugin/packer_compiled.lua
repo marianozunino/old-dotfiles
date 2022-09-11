@@ -193,7 +193,7 @@ _G.packer_plugins = {
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+    url = "https://github.com/marianozunino/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,

@@ -34,13 +34,10 @@ return require("packer").startup(function()
 	--
 	-- LSP stuff
 	use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
-	use("jose-elias-alvarez/null-ls.nvim")
+	use("marianozunino/null-ls.nvim")
 
 	-- Completion stuff
 	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("onsails/lspkind.nvim")
 	use("github/copilot.vim")
@@ -54,13 +51,6 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	-- use({
-	-- 	"kyazdani42/nvim-tree.lua",
-	-- 	requires = {
-	-- 		"kyazdani42/nvim-web-devicons", -- optional, for file icons
-	-- 	},
-	-- 	tag = "nightly", -- optional, updated every week. (see issue #1193)
-	-- })
 	use("kyazdani42/nvim-web-devicons")
 
 	use({
