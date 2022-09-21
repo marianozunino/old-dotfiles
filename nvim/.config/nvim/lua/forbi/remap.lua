@@ -7,6 +7,10 @@ nnoremap("<leader>tt", function()
 	dev_folders()
 end)
 
+nnoremap("<leader>qr", function()
+	R("forbi")
+end)
+
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 nnoremap("Y", "yy")
 nnoremap("?", "?\\v")

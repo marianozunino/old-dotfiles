@@ -1,3 +1,4 @@
+require("forbi.utils")
 require("forbi.packer")
 require("impatient")
 require("forbi.set")
