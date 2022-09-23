@@ -39,6 +39,7 @@ return require("packer").startup(function()
 	-- Completion stuff
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-path")
 	use("onsails/lspkind.nvim")
 	use("github/copilot.vim")
 
@@ -75,6 +76,8 @@ return require("packer").startup(function()
 			require("gitsigns").setup()
 		end,
 	}) -- display git signs in the buffer
+
+	use("mbbill/undotree") -- ain't git but close enough
 
 	use("ethanholz/nvim-lastplace")
 

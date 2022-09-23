@@ -117,6 +117,10 @@ end, { silent = true })
 -- move lines
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
+
+-- undo tree
+nnoremap("<leader>u", ":UndotreeShow<CR>")
+
 -- tmux navigation
 nnoremap("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 nnoremap("<C-g>", "<cmd>silent !tmux-switcher<CR>")
