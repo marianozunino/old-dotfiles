@@ -15,11 +15,19 @@ else
 	fi
 fi
 
-
 directory_name=`basename $DIR`
 
-# spawn alacritty with vim in the current directory in the background
-# alacritty --working-directory "${DIR}" --title "nvim ~ $directory_name" -e nvim $file_name &
-neovide --nofork --notabs --x11-wm-class "nvim ~ $directory_name" --maximized $file_name &
-# disown the child process so it doesn't get killed when the parent exits
+# if --tmux flag is passed, run in tmux
+if [ "$2" = "--tmux" ]; then
+	title="nvim ~ $directory_name"
+  command="tmux new -c $DIR -A -s $directory_name nvim $file_name"
+	i3-msg "[title=\"${title}\"] focus" >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		alacritty --working-directory "${DIR}" --title "$title" -e $command &
+		disown
+	fi
+	exit
+fi
+
+alacritty --working-directory "${DIR}" --title "nvim ~ $directory_name" -e nvim $file_name &
 disown
