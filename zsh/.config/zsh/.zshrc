@@ -8,7 +8,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 BASE16_SHELL="$HOME/dotfiles/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+    eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 
 #####################################
@@ -20,7 +20,7 @@ fi
 source "${HOME}/.config/zgen/zgen.zsh"
 
 _has() {
-  return $( whence $1 >/dev/null )
+    return $( whence $1 >/dev/null )
 }
 
 zgen oh-my-zsh
@@ -68,9 +68,9 @@ fi
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f'
 if _has fzf && _has rg; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --vimgrep --glob "!.git/*"'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --vimgrep --glob "!.git/*"'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 #####################################
@@ -97,9 +97,9 @@ setopt noflowcontrol
 
 #complete with ...
 expand-or-complete-with-dots() {
-  echo -n "\e[31m......\e[0m"
-  zle expand-or-complete
-  zle redisplay
+    echo -n "\e[31m......\e[0m"
+    zle expand-or-complete
+    zle redisplay
 }
 # zle -N expand-or-complete-with-dots
 # bindkey "^I" expand-or-complete-with-dots
@@ -118,8 +118,8 @@ zle -N findDirectory
 bindkey "^f" findDirectory
 
 tmuxSwitcher(){
-	tmux-switcher
-	zle reset-prompt
+    tmux-switcher
+    zle reset-prompt
 }
 zle -N tmuxSwitcher
 bindkey "^g" tmuxSwitcher
@@ -128,26 +128,26 @@ bindkey "^g" tmuxSwitcher
 #ssh?
 # if VIMRUNTIME is set, then we're in vim, so don't do anything
 if [ "$VIMRUNTIME" ]; then
-# elif [ $TERM_PROGRAM = "vscode" ]; then
-#     echo "VSCODE"
+    # elif [ $TERM_PROGRAM = "vscode" ]; then
+    #     echo "VSCODE"
 elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "Welcome stranger..."
-#startx?
+    #startx?
 elif [ -z "$DISPLAY" ] && [ "$(fgconsole)" = "1" ]; then
-   startx
-   exit
-#join the tmux club
+    startx
+    exit
+    #join the tmux club
 elif [ -z $TMUX ]; then
-    tmux ls 2> /dev/null 
+    tmux ls 2> /dev/null
     if [ $? -ne 0 ]; then
-        echo "Press any to to cancel the tmux love..." 
-        read -t 0.7 -n 1 -s -r 
+        echo "Press any to to cancel the tmux love..."
+        read -t 0.7 -n 1 -s -r
         if [ $? -ne 0 ]; then
-					tmux new -s default
-        fi 
+            tmux new -s default
+        fi
     else
-			# attach to the default session or create it if it doesn't exist
-			tmux attach -t default || tmux new -s default
+        # attach to the default session or create it if it doesn't exist
+        tmux attach -t default || tmux new -s default
     fi
 fi
 

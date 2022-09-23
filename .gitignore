@@ -35,6 +35,12 @@ zsh/.config/zsh/.zshrc.zwc
 
 bin/.local/bin/latest.tar.gz
 
+bin/.local/bin/sublime_merge/
+
+bin/.local/lib/python3.10/
+bin/.local/share/.DBeaverData/
+tmux/.config/tmux/plugins
+
 bin/.local/bin/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
 
 .zcompdump*

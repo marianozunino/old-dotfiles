@@ -12,10 +12,7 @@ nnoremap("<leader>qr", function()
 	R("forbi")
 end)
 
-nnoremap("<c-g>", function()
-	tmux_switcher()
-end)
-inoremap("<c-g>", function()
+nnoremap("<leader>tm", function()
 	tmux_switcher()
 end)
 
