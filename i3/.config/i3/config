@@ -54,7 +54,7 @@
         bindsym $mod+d exec rofi -show combi -show-icons
         bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' && sleep 0.2 && xdotool getactivewindow key "ctrl+shift+v"
 				bindsym F4 exec rofi -show window
-				bindsym $mod+t exec /bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | rofi -dmenu | xargs -i code ~/Development/{}
+				bindsym $mod+t exec /bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | rofi -dmenu | xargs -i code ~/Development/{} --tmux
         # Power
         bindsym XF86PowerOff exec rofi -show Power -modi Power:$HOME/.config/rofi/power.sh
         bindsym $mod+x exec rofi -show Power -modi Power:$HOME/.config/rofi/kill.sh
@@ -200,6 +200,7 @@
         assign [title="^win0$"] 3
         assign [title=".*Visual Studio Code*."] 3
         assign [class="^nvim ~ "] 3
+        assign [title="^nvim ~ "] 3
         assign [class="^firefox-nightly$"] 2
         assign [class="^Brave-browser$"] 2
         assign [class="^GitKraken$"] 4

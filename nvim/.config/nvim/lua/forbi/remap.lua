@@ -2,6 +2,7 @@ local nnoremap = require("forbi.keymap").nnoremap
 local inoremap = require("forbi.keymap").inoremap
 local vnoremap = require("forbi.keymap").vnoremap
 local dev_folders = require("forbi.telescope").dev_folders
+local tmux_switcher = require("forbi.telescope").tmux_switcher
 
 nnoremap("<leader>tt", function()
 	dev_folders()
@@ -9,6 +10,13 @@ end)
 
 nnoremap("<leader>qr", function()
 	R("forbi")
+end)
+
+nnoremap("<c-g>", function()
+	tmux_switcher()
+end)
+inoremap("<c-g>", function()
+	tmux_switcher()
 end)
 
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
@@ -109,3 +117,6 @@ end, { silent = true })
 -- move lines
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
+-- tmux navigation
+nnoremap("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+nnoremap("<C-g>", "<cmd>silent !tmux-switcher<CR>")

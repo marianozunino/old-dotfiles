@@ -117,12 +117,19 @@ findDirectory(){
 zle -N findDirectory
 bindkey "^f" findDirectory
 
+tmuxSwitcher(){
+	tmux-switcher
+	zle reset-prompt
+}
+zle -N tmuxSwitcher
+bindkey "^g" tmuxSwitcher
+
 
 #ssh?
 # if VIMRUNTIME is set, then we're in vim, so don't do anything
 if [ "$VIMRUNTIME" ]; then
-elif [ $TERM_PROGRAM = "vscode" ]; then
-    echo "VSCODE"
+# elif [ $TERM_PROGRAM = "vscode" ]; then
+#     echo "VSCODE"
 elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "Welcome stranger..."
 #startx?
@@ -136,10 +143,11 @@ elif [ -z $TMUX ]; then
         echo "Press any to to cancel the tmux love..." 
         read -t 0.7 -n 1 -s -r 
         if [ $? -ne 0 ]; then
-            tmux attach > /dev/null || tmux
+					tmux new -s default
         fi 
     else
-        tmux attach 
+			# attach to the default session or create it if it doesn't exist
+			tmux attach -t default || tmux new -s default
     fi
 fi
 

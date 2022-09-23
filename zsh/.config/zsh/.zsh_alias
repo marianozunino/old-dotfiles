@@ -14,7 +14,7 @@ alias yta="youtube-dl --add-metadata -xic"
 #
 alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias ts="tmux ls"
-alias ta="tmux attach > /dev/null || tmux"
+alias ta="tmux attach -t default || tmux new -s default"
 
 #cd folder
 alias gD="cd ~/Desktop"
