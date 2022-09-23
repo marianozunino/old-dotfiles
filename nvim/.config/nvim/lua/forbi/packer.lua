@@ -79,7 +79,7 @@ return require("packer").startup(function()
 	use("ethanholz/nvim-lastplace")
 
 	-- Make it look pretty with buffer headers
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	-- use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- debugger
 	use("mfussenegger/nvim-dap")

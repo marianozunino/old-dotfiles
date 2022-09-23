@@ -23,7 +23,7 @@ neogit.setup({
 	},
 })
 
-require("bufferline").setup({})
+-- require("bufferline").setup({})
 require("mason").setup()
 
 require("mason-tool-installer").setup({
