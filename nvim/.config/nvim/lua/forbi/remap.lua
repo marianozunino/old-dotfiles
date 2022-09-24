@@ -121,3 +121,6 @@ nnoremap("<leader>u", ":UndotreeShow<CR>")
 -- tmux navigation
 nnoremap("<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 nnoremap("<C-g>", "<cmd>silent !tmux-switcher<CR>")
+
+-- togle set list F3
+nnoremap("<F3>", ":set list! list?<CR>")
