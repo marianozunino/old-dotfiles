@@ -107,11 +107,13 @@ tmuxLauncher(){
     x=$(/bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | fzf)
     git rev-parse --git-dir 2> /dev/null
     if [[ $? -ne 0 ]] ;then
-			echo "asd"
-		  tmux-sessionizer $x
+        tmux rename-window $x; cd "/home/forbi/Development/$x"
+    else
+        tmux new-window -n $x -c "/home/forbi/Development/$x"
     fi
     zle reset-prompt
 }
+
 zle -N tmuxLauncher
 bindkey "^f" tmuxLauncher
 bindkey "^t" tmuxLauncher
@@ -122,6 +124,21 @@ tmuxSwitcher(){
 }
 zle -N tmuxSwitcher
 bindkey "^g" tmuxSwitcher
+
+sdmPortFinder(){
+		sdm status | grep -v "not connected" | grep connected | tr -s ' ' | cut -d ' ' -f 2,4 | fzf | cut -d ' ' -f 2 | xargs -I {} echo {} | xclip -selection clipboard
+		zle reset-prompt
+}
+zle -N sdmPortFinder
+bindkey "^p" sdmPortFinder
+
+sdmConnect(){
+		sdm status | grep "not connected" | tr -s ' ' | cut -d ' ' -f 2 | fzf | xargs -I {} sdm connect {}
+		zle reset-prompt
+}
+zle -N sdmConnect
+bindkey "^n" sdmConnect
+
 
 
 #ssh?
