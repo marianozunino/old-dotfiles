@@ -58,7 +58,7 @@ function M.dev_folders()
 					actions.close(prompt_bufnr)
 					local selection = action_state.get_selected_entry()
 					local command =
-						string.format("nohup sh -c 'cd %s && %s", "~/Development/" .. selection[1], "code .' && disown")
+						string.format("nohup sh -c 'code %s --tmux' disown", "~/Development/" .. selection[1])
 					local file = assert(io.popen(command, "r"))
 					file:close()
 				end)

@@ -48,7 +48,6 @@ if _has fzf; then
     zgen load junegunn/fzf shell/key-bindings.zsh
 fi
 
-bindkey -M main "^M" accept-line
 #
 #
 #
@@ -104,18 +103,18 @@ expand-or-complete-with-dots() {
 # zle -N expand-or-complete-with-dots
 # bindkey "^I" expand-or-complete-with-dots
 
-findDirectory(){
+tmuxLauncher(){
     x=$(/bin/fd --base-directory ~/Development --search-path .  -t d -d 2 | fzf)
     git rev-parse --git-dir 2> /dev/null
     if [[ $? -ne 0 ]] ;then
-        tmux rename-window $x; cd "/home/forbi/Development/$x"
-    else
-        tmux new-window -n $x -c "/home/forbi/Development/$x"
+			echo "asd"
+		  tmux-sessionizer $x
     fi
     zle reset-prompt
 }
-zle -N findDirectory
-bindkey "^f" findDirectory
+zle -N tmuxLauncher
+bindkey "^f" tmuxLauncher
+bindkey "^t" tmuxLauncher
 
 tmuxSwitcher(){
     tmux-switcher
@@ -153,10 +152,6 @@ fi
 
 
 source /usr/share/git-flow/git-flow-completion.zsh
-
-
-export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$(yarn global bin)"
-
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
