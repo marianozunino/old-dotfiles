@@ -128,10 +128,9 @@ function M.tmux_switcher()
 				actions.select_default:replace(function()
 					actions.close(prompt_bufnr)
 					local selection = action_state.get_selected_entry()
-
-					-- tmux switch-client -t $(tmux ls | cut -d: -f1 | fzf)
-					print("tmux switch-client -t " .. selection.value)
-					local command = string.format("nohup sh -c 'tmux switch-client -t %s' &", selection.value)
+					-- local command = string.format("nohup sh -c 'tmux switch-client -t %s' &", selection.value)
+					local command =
+						string.format("nohup sh -c 'code %s --tmux' disown", "~/Development/" .. selection.value)
 					local file = assert(io.popen(command, "r"))
 					file:close()
 				end)
@@ -139,6 +138,27 @@ function M.tmux_switcher()
 			end,
 		})
 		:find()
+end
+
+function M.file_browser()
+	local _, ret, _ = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
+	if ret == 0 then
+		require("telescope.builtin").git_files({
+			show_untracked = true,
+			git_command = {
+				"git",
+				"ls-files",
+				"--exclude-standard",
+				"--cached",
+				"-x",
+				"!*.tfvars",
+				"-x",
+				"!.env",
+			},
+		})
+	else
+		require("telescope.builtin").find_files()
+	end
 end
 
 return M
