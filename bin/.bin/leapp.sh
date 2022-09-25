@@ -1,12 +1,12 @@
 #!/bin/bash
 
-bin=~/.bin/leap
+bin=~/.bin/leapp
 
 # if leapp binary is not found, download it
 
 if [ ! -f $bin ]; then
 	echo "Downloading leapp binary..."
-	url="https://asset.noovolari.com/latest/Leapp-0.13.1.AppImage"
+	url="https://asset.noovolari.com/latest/Leapp-0.14.3.AppImage"
 	wget -q -O $bin $url
 	chmod +x $bin
 fi

@@ -2,7 +2,7 @@
 Name=openbydomain
 Comment=OpenByDomain
 GenericName=OpenByDomain
-Exec=/home/forbi/.local/bin/openw.py %U
+Exec=/home/forbi/.bin/openw.py %U
 StartupNotify=true
 Terminal=false
 Type=Application
