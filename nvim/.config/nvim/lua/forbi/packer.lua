@@ -29,7 +29,16 @@ return require("packer").startup(function()
 	-- Telescope stuff
 	use("nvim-telescope/telescope.nvim")
 	use("gbrlsnchs/telescope-lsp-handlers.nvim")
-	use("xiyaowong/telescope-emoji.nvim")
+	-- use("xiyaowong/telescope-emoji.nvim")
+	use("stevearc/dressing.nvim")
+	use({
+		"ziontee113/icon-picker.nvim",
+		config = function()
+			require("icon-picker").setup({
+				disable_legacy_commands = true,
+			})
+		end,
+	})
 
 	--
 	-- LSP stuff
@@ -134,4 +143,5 @@ return require("packer").startup(function()
 	if packer_bootstrap then
 		require("packer").sync()
 	end
+	use("fatih/vim-go")
 end)

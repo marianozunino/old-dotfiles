@@ -1,7 +1,26 @@
 local null_ls = require("null-ls")
 
 local sources = {
-	null_ls.builtins.formatting.prettierd,
+	null_ls.builtins.formatting.prettier.with({
+		filetypes = {
+			"javascript",
+			"typescript",
+			"typescriptreact",
+			"javascriptreact",
+			"json",
+			"yaml",
+			"markdown",
+			"html",
+			"css",
+			"scss",
+			"less",
+			"graphql",
+			"vue",
+			"svelte",
+			"lua",
+			"gohtmltmpl",
+		},
+	}),
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.rubocop,
 	null_ls.builtins.formatting.beautysh,

@@ -104,3 +104,5 @@ end, { silent = true })
 nnoremap("<leader>4", function()
 	require("harpoon.ui").nav_file(4)
 end, { silent = true })
+
+nnoremap("<Leader><Leader>i", "<cmd>IconPickerNormal<cr>")

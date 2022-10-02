@@ -36,7 +36,7 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("lsp_handlers")
-require("telescope").load_extension("emoji")
+-- require("telescope").load_extension("emoji")
 require("telescope.builtin").quickfix()
 
 local M = {}

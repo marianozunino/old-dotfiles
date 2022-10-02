@@ -85,3 +85,4 @@ vim.g.gruvbox_material_better_performance = 1
 vim.cmd("colorscheme gruvbox-material")
 
 vim.opt.listchars = "tab:→ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
+vim.g.go_doc_keywordprg_enabled = 0
