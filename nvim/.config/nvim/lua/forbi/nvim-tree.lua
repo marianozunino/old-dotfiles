@@ -42,6 +42,9 @@ require("neo-tree").setup({
 				{ "harpoon_index" }, --> This is what actually adds the component in where you want it
 			},
 		},
+		filtered_items = {
+			hide_dotfiles = false,
+		},
 	},
 	event_handlers = {
 		{
