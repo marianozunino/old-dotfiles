@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["Vim-Jinja2-Syntax"] = {
+    loaded = true,
+    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/Vim-Jinja2-Syntax",
+    url = "https://github.com/Glench/Vim-Jinja2-Syntax"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -295,11 +300,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/forbi/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-go"] = {
-    loaded = true,
-    path = "/home/forbi/.local/share/nvim/site/pack/packer/start/vim-go",
-    url = "https://github.com/fatih/vim-go"
   },
   ["vim-grammarous"] = {
     loaded = true,

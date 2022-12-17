@@ -16,6 +16,7 @@ require("telescope").setup({
 				["<esc>"] = actions.close,
 			},
 		},
+		layout_strategy = "vertical",
 	},
 	pickers = {
 		buffers = {

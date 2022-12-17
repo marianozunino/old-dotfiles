@@ -19,6 +19,8 @@ local sources = {
 			"svelte",
 			"lua",
 			"gohtmltmpl",
+			"jinja.html",
+			"jinja",
 		},
 	}),
 	null_ls.builtins.formatting.stylua,

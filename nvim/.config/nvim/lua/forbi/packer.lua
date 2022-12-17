@@ -143,5 +143,6 @@ return require("packer").startup(function()
 	if packer_bootstrap then
 		require("packer").sync()
 	end
-	use("fatih/vim-go")
+	-- use("fatih/vim-go")
+	use("Glench/Vim-Jinja2-Syntax")
 end)

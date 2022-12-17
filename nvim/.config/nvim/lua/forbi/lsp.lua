@@ -17,7 +17,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local function config(_config)
 	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function(client)
 			--			if client.name == "tsserver" or client == "sumneko_lua" then
 			--				client.resolved_capabilities.document_formatting = false
